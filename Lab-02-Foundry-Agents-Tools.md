@@ -48,7 +48,7 @@ By the end of this lab, you will have:
    - **Resource group:** `rg-foundry-lab` (the resource group created in Lab 01)
    - **Storage account name:** `ststocks<yourname>` (must be globally unique, lowercase, no hyphens)
    - **Region:** `Australia East`
-   - **Preferred storage type:** `Azure Blob Storage or Azure Data Lake Storage Gen2`
+   - **Primary service:** `Azure Blob Storage or Azure Data Lake Storage Gen2`
    - **Performance:** Standard
    - **Redundancy:** Locally-redundant storage (LRS)
 5. Click **Review + Create**, then **Create**
