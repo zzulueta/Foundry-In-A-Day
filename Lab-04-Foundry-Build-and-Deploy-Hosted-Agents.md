@@ -318,13 +318,17 @@ In this optional step, you can explore orchestrating multiple agents in a group 
 1. Create a new **Multi-Agent Workflow (Agent Framework)** project in VS Code and save it in another directory.
 2. Replace `main.py` with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/groupchat.py>
 3. Modify the `azure.yaml` if needed to correct the model deployment.
-4. Go to the file `pyproject.toml` and add the `agent-framework-orchestrations` library under the `dependencies` section.
-5. Open the terminal and go to the folder where pyproject.toml is located. Prepare the Python environment:
+4. Open the terminal and go to the folder where pyproject.toml is located. Prepare the Python environment:
    ```
    pipx install uv==0.11.7
-   uv lock --python 3.13
-   uv sync --frozen --python 3.13
+   uv add --python 3.13 agent-framework-orchestrations
+   uv sync --python 3.13
    ```
+5. Select the project's Python environment in VS Code:
+   - Press Ctrl+Shift+P.
+   - Search for Python: Select Interpreter.
+   - Select the Python interpreter from the project's .venv directory (src\agent-framework-workflows-responses\.venv\Scripts\python.exe).
+   > Note: Selecting this interpreter ensures that VS Code and Pylance use the same virtual environment where uv installed the project dependencies.
 6. Run the multi-agent workflow locally to verify that all agents are functioning correctly:
    ```
    Please evaluate this candidate for the role below.
