@@ -33,7 +33,7 @@ By the end of this lab, you will have:
 ### 1.2 Create a Container and Upload Sample Documents
 1. In the Azure Portal, navigate to **Resource groups** > `rg-foundry-lab` > `ststocks<yourname>` (the storage account created in Lab 02)
 2. In your storage account, navigate to **Data storage** > **Containers** in the left menu
-2. Click **+ Container**
+2. Click **+ Add Container**
 3. Configure the container:
    - **Name:** `manuals`
    - **Public access level:** Private (no anonymous access)

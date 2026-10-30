@@ -414,7 +414,7 @@ Note: This configuration uses the stock symbol as the PartitionKey and a timesta
 ### 5.8 Save and Get Logic App URL
 1. Click **Save** at the top of the designer
 2. Click back on the **When an HTTP request is received** trigger
-3. After saving, the **HTTP POST URL** will be generated
+3. The **HTTP POST URL** will be generated
 4. Click the **Copy** icon to copy the URL
 5. Save this URL. You will need this for testing.
 
@@ -550,10 +550,10 @@ Note: This configuration uses the stock symbol as the PartitionKey and a timesta
    - Navigate to your storage account > **Storage browser** > **Tables** > **stockquotes**
    - Verify that the entities were created with all data fields
 
-### 7.3 Test Code Interpreter with Stored Data
+### 7.3 Test Code Interpreter with Previous Data
 1. Ask for analysis:
    ```
-   I just saved stock data for Microsoft, Apple, and Amazon. Can you create a bar chart comparing their current prices?
+   Create a bar chart comparing the current prices of Microsoft, Apple, and Amazon. Use results from previous queries if available.
    ```
 2. Observe the agent:
    - ✅ Uses information from previous queries
