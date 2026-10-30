@@ -141,8 +141,8 @@ Rules:
 1. Open a terminal in the `src\agent-framework-agent-basic-responses` folder
 2. Prepare the Python environment:
    ```
-    pipx install uv==0.11.7
-    uv sync --frozen --python 3.13
+   pipx install uv==0.11.7
+   uv sync --frozen --python 3.13
    ```
 3. Wait for the installation to complete
 
@@ -245,8 +245,8 @@ Potential revenue impact if the issue is not resolved quickly
 1. Open a terminal in the `src\agent-framework-agent-basic-responses` folder
 2. Prepare the Python environment:
    ```
-    pipx install uv==0.11.7
-    uv sync --frozen --python 3.13
+   pipx install uv==0.11.7
+   uv sync --frozen --python 3.13
    ```
 3. Wait for the installation to complete
 ---
