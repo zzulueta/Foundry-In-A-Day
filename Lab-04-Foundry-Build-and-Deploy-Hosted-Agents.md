@@ -318,7 +318,7 @@ In this optional step, you can explore orchestrating multiple agents in a group 
 1. Create a new **Multi-Agent Workflow (Agent Framework)** project in VS Code and save it in another directory.
 2. Replace `main.py` with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/groupchat.py>
 3. Modify the `azure.yaml` if needed to correct the model deployment.
-4. Go to the file `pyproject.toml` and add the `agent-framework-orchestrations` library under `dependencies` section.
+4. Go to the file `pyproject.toml` and add the `agent-framework-orchestrations` library under the `dependencies` section.
 5. Prepare the Python environment:
    ```
    pipx install uv==0.11.7
@@ -391,7 +391,7 @@ In this optional step, you can explore orchestrating multiple agents in a group 
    - Partner with AI teams to deploy models securely
    - Lead incident response and mentor engineers
    ```
-7. Deploy the multi-agent workflow to Azure container and name the agent `groupchat`.
+7. Deploy the multi-agent workflow to an Azure container and name the agent `groupchat`.
 
 ---
 
