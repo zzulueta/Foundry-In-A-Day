@@ -41,21 +41,13 @@ By the end of this lab, you will have:
 3. Sign in with your Azure credentials
 4. Verify that you are in the New Foundry Portal and that your project (`project01`) is selected in the upper left corner
 
-### 1.3 Verify the Base Model
-1. In the Foundry Home page, copy your **API Key** and **Project endpoint** in a notepad
-2. Navigate to **Build** in the top navigation, then select **Models** in the left-hand side
-> Note: The Models option may be replaced by the **Deployments** option in the left sidebar for newer versions of Foundry. If you see Deployments instead of Models, click on Deployments. 
-3. Verify that the `gpt-5.4` deployment from Lab 01 is available
-4. In the model playground, test the model by providing a prompt: `"What is Microsoft Foundry?"`
-5. Verify you receive a coherent response
-
 ---
 
 ## Step 2: Setup VS Code Environment
 
 ### 2.1 Configure Azure CLI
 1. Open VS Code
-2. Open VS Code Terminal (`Ctrl+` ` or View > Terminal)
+2. Open VS Code Terminal (Terminal > New Terminal)
 3. Log in to Azure: `az login`
 4. Follow the authentication prompts:
    - Select **Work or School account**
@@ -77,11 +69,11 @@ By the end of this lab, you will have:
 1. Press `Ctrl+Shift+P` to open the Command Palette
 2. Type: `Foundry Toolkit: Create new Hosted Agent` and select it
 3. Choose the following options:
-   - **Basic Hosted Agent**
+   - **Build your first chat agent**
    - Language: **Python**
    - Framework: **Agent Framework**
    - Protocol Type: **Responses**
-   - Click **Next**
+   - Click **Use template**
 4. Configure workspace:
    - Choose the proper workspace folder (create new folder if needed)
    - Select your model deployment
@@ -92,12 +84,13 @@ By the end of this lab, you will have:
 ### 3.2 Configure Environment Variables
 1. Navigate to the `.env` file in your project found in the src folder
 2. Verify that the following variables are set correctly:
-   - Project endpoint (must match the endpoint from Step 1.3)
+   - Project endpoint (must match the endpoint of your project)
    - Model deployment name (must match your model deployment)
 
 ### 3.3 Configure Azure Deployment Settings
 1. Open the `azure.yaml` file
 2. Verify that the correct model deployment is set
+   - If the model deployment is incorrect, update it to match your model deployment
 
 ### 3.4 Customize Agent Instructions
 1. Open `main.py`
@@ -146,19 +139,12 @@ Rules:
 
 ### 3.5 Setup Python Virtual Environment
 1. Open a terminal in the `src\agent-framework-agent-basic-responses` folder
-2. Create a virtual environment:
+2. Prepare the Python environment:
    ```
-   python -m venv .venv
+    pipx install uv==0.11.7
+    uv sync --frozen --python 3.13
    ```
-3. Activate the environment:
-   - **Windows (PowerShell):** `.\.venv\Scripts\Activate.ps1`
-   - **Windows (CMD):** `.venv\Scripts\activate.bat`
-   - **macOS/Linux:** `source .venv/bin/activate`
-4. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-5. Wait for the installation to complete
+3. Wait for the installation to complete
 
 ---
 
@@ -247,7 +233,6 @@ Potential revenue impact if the issue is not resolved quickly
 ### 5.2 Configure Environment
 1. Navigate to the `.env` file under the src folder
 2. Verify that the project endpoint and model deployment variables are correctly set
-
 3. Open the `azure.yaml` file
 4. Verify that the correct model deployment is set
 
@@ -258,19 +243,12 @@ Potential revenue impact if the issue is not resolved quickly
 
 ### 5.4 Setup Python Virtual Environment
 1. Open a terminal in the `src\agent-framework-agent-basic-responses` folder
-2. Create a virtual environment:
+2. Prepare the Python environment:
    ```
-   python -m venv .venv
+    pipx install uv==0.11.7
+    uv sync --frozen --python 3.13
    ```
-3. Activate the environment:
-   - **Windows (PowerShell):** `.\.venv\Scripts\Activate.ps1`
-   - **Windows (CMD):** `.venv\Scripts\activate.bat`
-   - **macOS/Linux:** `source .venv/bin/activate`
-4. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-5. Wait for the installation to complete
+3. Wait for the installation to complete
 ---
 
 ## Step 6: Test and Deploy the Resume Analyzer
