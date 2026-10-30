@@ -218,7 +218,7 @@ By the end of this lab, you will have:
 1. Navigate to the **Evaluation** Tab under the Triage-Agent page.
 
 ### 4.2 Create an Evaluation
-1. Under Automatic Evaluation, click **Create** in the upper right corner
+1. Under Evaluations, click **Create** in the upper right corner
 2. Under Target:Agent ensure the Triage-Agent is selected and click **Next**
 3. Under Scope:
    - Select **Individual turns**
@@ -238,9 +238,7 @@ By the end of this lab, you will have:
    - Click **Next**
 8. Under Criteria:
    - **Judge model**: `gpt-5.4-mini`
-   - **Agents:** Remove all but keep CustomerSatisfaction
-   - **Quality:** Remove all but keep Relevance, Coherence, Fluency
-   - **Safety:** Remove all but keep Violence
+   - **Criteria:** Select Customer satisfaction, Relevance, Coherence, Fluency, Violence
    - Click **Next**
 9. Finalize and submit the evaluation:
    - **Name:** `TriageAgentEvaluation`
@@ -437,7 +435,7 @@ By the end of this lab, you will have:
 ### 8.4 Test the Policy
 1. The CustomerSupport Compliance Policy you just created will eventually scan and identify existing custom guardrails that do not follow the policy. 
 2. To test the policy immediately, you can create a new guardrail that goes against the policy:
-   - Go to **Deployments** > **Deploy a base model** and deploy a **text-embedding-3-small** model 
+   - Go to **Build** > **Models/Deployments** > **Deploy a base model** and deploy a **text-embedding-3-small** model 
    - Go to **Build** > **Guardrails** > **Guardrails** tab
    - Select **Create** in the upper right corner
    - Select Jailbreak
