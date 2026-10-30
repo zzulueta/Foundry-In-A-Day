@@ -184,7 +184,7 @@ By the end of this lab, you will have:
    - **Description:** `Fetches current stock price and company information from Alpha Vantage API for a given stock symbol`
    - **Authentication method:** Select **API key**
 4. Select **Create a new connection**
-   - Connection name: `Alpha Vantage`
+   - Connection name: `AlphaVantage`
    - Target URL: `https://www.alphavantage.co`
    - Key name 1: `apikey`
    - Key value 1: `YOUR_API_KEY_HERE`
