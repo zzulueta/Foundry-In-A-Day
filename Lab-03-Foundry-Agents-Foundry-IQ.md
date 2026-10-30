@@ -69,19 +69,7 @@ By the end of this lab, you will have:
 3. Sign in with your Azure credentials
 4. Verify that you are in the Foundry Portal and that your project (`project01`) is selected in the upper left corner
 
-### 2.2 Verify Model Deployment
-1. In Microsoft Foundry, navigate to **Build** in the top navigation
-2. Select **Models** from the left sidebar
-> Note: The Models option may be replaced by the **Deployments** option in the left sidebar for newer versions of Foundry. If you see Deployments instead of Models, click on Deployments. 
-3. Verify that the `gpt-5.4` deployment from Lab 01 is available, select it, and click **Open in playground**
-4. In the input box, enter a test prompt:
-   ```
-   What is Microsoft Foundry?
-   ```
-5. Click **Submit**
-6. Verify you receive a coherent response describing Microsoft Foundry
-
-### 2.3 Deploy an Embedding Model
+### 2.2 Deploy an Embedding Model
 1. In the **Models** section, click **Deploy a base model** again
 2. Search for the **text-embedding-3-large** model
 3. Select the model and click **Deploy** > **Custom settings**
