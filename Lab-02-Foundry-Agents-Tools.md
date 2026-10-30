@@ -168,7 +168,7 @@ By the end of this lab, you will have:
 5. You can download the bar chart image and verify it shows the correct Fibonacci numbers.
 6. Ask a calculation question:
    ```
-   Calculate the compound interest for a $10,000 investment at 5% annual rate for 10 years, compounded monthly. Show the calculations step by step.
+   Calculate the compound interest for a $10,000 investment at 5% annual rate for 10 years, compounded monthly. Show the calculations step by step then show the result in a line chart.
    ```
 7. Verify the agent performs calculations using Python
 
@@ -182,9 +182,14 @@ By the end of this lab, you will have:
 3. Configure the OpenAPI tool:
    - **Name:** `get_stock_quote`
    - **Description:** `Fetches current stock price and company information from Alpha Vantage API for a given stock symbol`
-   - **Authentication method:** Select **Anonymous**
-
-4. In the **OpenAPI 3.0+ schema** box, paste the following schema:
+   - **Authentication method:** Select **API key**
+4. Select **Create a new connection**
+   - Connection name: `Alpha Vantage`
+   - Target URL: `https://www.alphavantage.co`
+   - Key name 1: `apikey`
+   - Key value 1: `YOUR_API_KEY_HERE`
+   - Save the connection
+5. In the **OpenAPI 3.0+ schema** box, paste the following schema:
    ```json
    {
      "openapi": "3.0.0",
@@ -223,16 +228,6 @@ By the end of this lab, you will have:
                  "type": "string"
                },
                "description": "Stock symbol (e.g., MSFT, AAPL, GOOGL)"
-             },
-             {
-               "name": "apikey",
-               "in": "query",
-               "required": true,
-               "schema": {
-                 "type": "string",
-                 "default": "YOUR_API_KEY_HERE"
-               },
-               "description": "Your Alpha Vantage API key"
              }
            ],
            "responses": {
@@ -249,18 +244,24 @@ By the end of this lab, you will have:
            }
          }
        }
-     }
+     },
+     "components": {
+       "securitySchemes": {
+         "apiKeyQuery": {
+           "type": "apiKey",
+           "name": "apikey",
+           "in": "query"
+         }
+       }
+     },
+     "security": [
+       {
+         "apiKeyQuery": []
+       }
+     ]
    }
    ```
-
-5. **Important:** Replace `YOUR_API_KEY_HERE` in the schema with your actual Alpha Vantage API key from Step 1.5
-   - Find the `"default": "YOUR_API_KEY_HERE"` line in the schema
-   - Replace `YOUR_API_KEY_HERE` with your API key (keep the quotes)
-   - Example: `"default": "ABC123XYZ456"`
-
 6. Click **Create tool**
-
-> **Note:** For simplicity in this lab, we're embedding the API key directly in the OpenAPI schema. In production environments, you should use secure credential storage.
 
 7. Click **Save** in the upper right corner
 
