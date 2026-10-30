@@ -310,6 +310,88 @@ Potential revenue impact if the issue is not resolved quickly
 3. Select your deployed agent (`resume-analyzer`)
 4. Enter test resumes and job descriptions
 5. Verify consistent results across local, deployed, and portal testing
+---
+
+## Step 7: [Optional] Group Chat Workflow Orchestration
+In this optional step, you can explore orchestrating multiple agents in a group chat scenario. This allows agents to collaborate and share context to achieve more complex tasks.
+
+1. Create a new **Multi-Agent Workflow (Agent Framework)** project in VS Code and save it in another directory.
+2. Replace `main.py` with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/groupchat.py>
+3. Modify the `azure.yaml` if needed to correct the model deployment.
+4. Go to the file `pyproject.toml` and add the `agent-framework-orchestrations` library under `dependencies` section.
+5. Prepare the Python environment:
+   ```
+   pipx install uv==0.11.7
+   uv sync --frozen --python 3.13
+   ```
+6. Run the multi-agent workflow locally to verify that all agents are functioning correctly:
+   ```
+   Please evaluate this candidate for the role below.
+
+   === RESUME ===
+   Name: Jordan Lee
+   Title: Cloud Engineer
+   Location: Singapore
+
+   Summary:
+   Cloud engineer with 4.5 years of experience building and operating containerized
+   workloads on AWS. Passionate about automation and developer experience.
+
+   Experience:
+   - Cloud Engineer, FinNova Pte Ltd (Mar 2023 – Present)
+   • Migrated 30+ microservices from EC2 to Amazon EKS, cutting infra cost by 22%
+   • Built CI/CD pipelines with GitHub Actions and Terraform for 12 product teams
+   • Set up Prometheus/Grafana monitoring and on-call runbooks
+   • Mentored 3 junior engineers
+
+   - DevOps Engineer, ShopQuick (Jan 2020 – Jun 2022)
+   • Containerized legacy Python apps with Docker
+   • Automated AWS infrastructure provisioning with CloudFormation
+   • Wrote Python scripts for log analysis and cost reporting
+
+   - Career break (Jul 2022 – Feb 2023): caregiving
+
+   Skills:
+   AWS (EKS, EC2, S3, IAM, Lambda), Kubernetes, Docker, Terraform, GitHub Actions,
+   Python, Bash, Prometheus, Grafana, Linux
+
+   Certifications:
+   - AWS Certified Solutions Architect – Associate (2022)
+   - Certified Kubernetes Administrator (CKA) (2023)
+
+   Education:
+   Diploma in Information Technology, Ngee Ann Polytechnic
+
+   === JOB DESCRIPTION ===
+   Role: Senior Azure Platform Engineer
+   Company: Contoso Health
+
+   About the role:
+   Design and run the Azure platform that hosts our patient-facing AI services.
+
+   Required:
+   - 5+ years in cloud infrastructure or platform engineering
+   - Hands-on experience with Microsoft Azure (AKS, Azure Networking, Entra ID)
+   - Kubernetes in production
+   - Infrastructure as Code (Bicep or Terraform)
+   - CI/CD (Azure DevOps or GitHub Actions)
+
+   Preferred:
+   - Microsoft Certified: Azure Solutions Architect Expert or AZ-104
+   - Experience deploying AI/ML workloads (Azure OpenAI, Microsoft Foundry)
+   - Healthcare or other regulated-industry experience (HIPAA, PDPA)
+   - Observability with Azure Monitor / Application Insights
+
+   Education:
+   Bachelor's degree in Computer Science or equivalent experience
+
+   Responsibilities:
+   - Own AKS cluster design, security, and upgrades
+   - Build golden-path IaC templates for product teams
+   - Partner with AI teams to deploy models securely
+   - Lead incident response and mentor engineers
+   ```
+7. Deploy the multi-agent workflow to Azure container and name the agent `groupchat`.
 
 ---
 
