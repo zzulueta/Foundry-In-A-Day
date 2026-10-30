@@ -327,6 +327,7 @@ In this optional step, you can explore orchestrating multiple agents in a group 
 5. Select the project's Python environment in VS Code:
    - Press Ctrl+Shift+P.
    - Search for Python: Select Interpreter.
+   - Select `Enter interpreter path...`
    - Select the Python interpreter from the project's .venv directory (src\agent-framework-workflows-responses\.venv\Scripts\python.exe).
    > Note: Selecting this interpreter ensures that VS Code and Pylance use the same virtual environment where uv installed the project dependencies.
 6. Run the multi-agent workflow locally to verify that all agents are functioning correctly:
