@@ -222,7 +222,7 @@ Potential revenue impact if the issue is not resolved quickly
    - Language: **Python**
    - Framework: **Agent Framework**
    - Protocol Type: **Responses**
-   - Click **Next**
+   - Click **Use template**
 5. Configure workspace:
    - Choose the proper workspace folder (create new folder if needed)
    - Select your model deployment
@@ -235,11 +235,13 @@ Potential revenue impact if the issue is not resolved quickly
 2. Verify that the project endpoint and model deployment variables are correctly set
 3. Open the `azure.yaml` file
 4. Verify that the correct model deployment is set
+   - If incorrect, update to the correct model deployment
 
 ### 5.3 Implement Resume Analyzer Logic
 1. Open `main.py`
 2. Replace the entire content with the code from:
    <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/main.py>
+3. Save `main.py`
 
 ### 5.4 Setup Python Virtual Environment
 1. Open a terminal in the `src\agent-framework-agent-basic-responses` folder
