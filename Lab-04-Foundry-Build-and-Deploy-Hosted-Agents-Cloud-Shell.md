@@ -107,7 +107,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
        - model name: `gpt-5.4`
        - name: `gpt-5.4`
        
-3. Save the file and exit (Ctrl+S & Ctrl+Q) after making the necessary changes.
+3. Save the file (Ctrl+S) after making the necessary changes.
 
 ### 1.5 Modify the main.py file
 
@@ -115,7 +115,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 2. Replace with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/basicagent.py>
 
-3. Save the file and exit (Ctrl+S & Ctrl+Q) after making the necessary changes.
+3. Save the file (Ctrl+S) after making the necessary changes.
 
 
 ### 1.6 Rename the .env.example file to .env
@@ -124,7 +124,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 2. Update the environment variables for your local development.
 
-3. Save the file and exit (Ctrl+S & Ctrl+Q) after making the necessary changes.
+3. Save the file (Ctrl+S) after making the necessary changes.
 
 4. Rename the `.env.example` file to `.env` for local development.
   ```bash
