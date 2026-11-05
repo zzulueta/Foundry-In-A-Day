@@ -106,7 +106,7 @@ uv python pin 3.13
 
 2. Confirm the model deployment name for the `gpt-5.4` deployment from Lab 01. The initialization commands in the next steps pass both the project Resource ID and the existing model deployment to `azd`.
 
-> **Permissions note:** Passing `--project-id` connects `azd` directly to the existing project and skips the automatic role assignments performed when `azd` creates a new project. Before continuing, make sure your account already has the required hosted-agent permissions on this project. See [Hosted agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions), or ask your Azure administrator to assign them.
+> **Important:** Replace every `<...>` placeholder in the commands below with your actual value; do not enter the angle-bracketed text literally. Passing `--project-id` connects `azd` directly to the existing project and skips the automatic role assignments performed when `azd` creates a new project. Before continuing, make sure your account already has the required hosted-agent permissions on this project. See [Hosted agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions), or ask your Azure administrator to assign them.
 
 ## Step 5: Create the Executive Summary Agent
 
@@ -117,7 +117,6 @@ Create an empty project directory and initialize it from Microsoft's basic Pytho
 ```bash
 mkdir -p "$HOME/executive-summary-agent"
 cd "$HOME/executive-summary-agent"
-uv python pin 3.13
 
 azd ai agent init \
   --template "https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/agent-framework/responses/01-basic/azure.yaml" \
@@ -129,6 +128,14 @@ azd ai agent init \
 ```
 
 The `--project-id` argument connects this agent to the existing `project01` project; replace its placeholder with the full Resource ID copied in Step 4. The `--model-deployment` argument selects the existing `gpt-5.4` deployment. This command uses **code** deployment: it uploads source for Foundry to build remotely, rather than building a container in Cloud Shell.
+
+After initialization finishes, pin the local Python version:
+
+```bash
+uv python pin 3.13
+```
+
+If `azd` warns that the directory is not empty, confirm that it contains only files you just created for this project (for example, `.python-version`) before choosing **Yes**. Do not initialize over unrelated files.
 
 Review the generated `azure.yaml` and agent source with the Cloud Shell editor or a terminal editor such as `nano`. Confirm the project and model deployment are correct. For Python, ensure the agent service's `env` map includes:
 
@@ -228,7 +235,6 @@ Create a separate project directory and initialize the same basic Responses samp
 ```bash
 mkdir -p "$HOME/resume-analyzer"
 cd "$HOME/resume-analyzer"
-uv python pin 3.13
 
 azd ai agent init \
   --template "https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/agent-framework/responses/01-basic/azure.yaml" \
@@ -240,6 +246,12 @@ azd ai agent init \
 ```
 
 Replace the project ID and model-deployment placeholders with the same values used in Step 5.1. Review `azure.yaml` and confirm this service also uses source-code deployment and the intended model deployment. Ensure `PYTHONNOUSERSITE: "1"` is present in the service's environment.
+
+After initialization finishes, pin the local Python version:
+
+```bash
+uv python pin 3.13
+```
 
 ### 6.2 Add the resume analyzer workflow
 
