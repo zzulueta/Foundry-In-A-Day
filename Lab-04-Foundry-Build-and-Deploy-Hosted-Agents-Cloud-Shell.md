@@ -188,13 +188,17 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 2.3 Run the agent locally
 
-1. Run the following command to start the agent locally:
+1. Run in the same directory as the pyproject.toml file the following command to install a new dependency:
+  ```bash
+  uv add --python 3.13 agent-framework-orchestrations
+  ```
+2. Run the following command to start the agent locally:
   ```bash
   azd ai agent run
   ```
   > The agent host will start on `http://localhost:8088`.
 
-2. Open another cloud shell to interact with the agent while it is running locally.
+3. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
   curl -sS \
   -H "Content-Type: application/json" \
@@ -226,4 +230,116 @@ Required: Python, Azure, Kubernetes, Terraform, CI/CD pipelines.
 Preferred: Go, monitoring (Prometheus/Grafana), cost optimization.
 Experience: 5+ years in cloud infrastructure.
 Certifications: Azure Solutions Architect Expert preferred.
+```
+
+## Step 3: Build the Group Chat Agent
+
+### 3.1 Modify the azure.yaml
+
+1. Open the `azure.yaml` file in the project directory.
+
+2. Update the configuration as needed for your Foundry project and model deployment.
+   - name: `groupchatagent` (found under services:)
+       
+3. Save the file (Ctrl+S) after making the necessary changes.
+
+### 3.2 Modify the main.py file
+
+1. Open the `main.py` file in the project directory.
+
+2. Replace with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/main.py>
+
+3. Save the file (Ctrl+S) after making the necessary changes.
+
+### 3.3 Run the agent locally
+
+1. Run the following command to start the agent locally:
+  ```bash
+  azd ai agent run
+  ```
+  > The agent host will start on `http://localhost:8088`.
+
+2. Open another cloud shell to interact with the agent while it is running locally.
+  ```bash
+  curl -sS \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:8088/responses \
+  -d '{"input":"**Resume:**\nJane Doe\nSenior Software Engineer with 5 years of experience in Python, Django, and AWS.\nBuilt microservices handling 10K+ requests/second. Led a team of 4 developers.\nCertifications: AWS Solutions Architect Associate.\nEducation: B.S. Computer Science, State University.\n\n**Job Description:**\nSenior Cloud Engineer at Contoso Ltd.\nRequired: Python, Azure, Kubernetes, Terraform, CI/CD pipelines.\nPreferred: Go, monitoring (Prometheus/Grafana), cost optimization.\nExperience: 5+ years in cloud infrastructure.\nCertifications: Azure Solutions Architect Expert preferred."}'
+  ```
+
+### 3.4 Deploy to Foundry
+
+1. Once tested locally, stop the agent that is running locally by clicking Ctrl+C in the terminal where it is running.
+
+2. Deploy to Microsoft Foundry:
+  ```bash
+  azd deploy
+  ```
+
+3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+```
+Please evaluate this candidate for the role below.
+
+=== RESUME ===
+Name: Jordan Lee
+Title: Cloud Engineer
+Location: Singapore
+
+Summary:
+Cloud engineer with 4.5 years of experience building and operating containerized
+workloads on AWS. Passionate about automation and developer experience.
+
+Experience:
+- Cloud Engineer, FinNova Pte Ltd (Mar 2023 – Present)
+• Migrated 30+ microservices from EC2 to Amazon EKS, cutting infra cost by 22%
+• Built CI/CD pipelines with GitHub Actions and Terraform for 12 product teams
+• Set up Prometheus/Grafana monitoring and on-call runbooks
+• Mentored 3 junior engineers
+
+- DevOps Engineer, ShopQuick (Jan 2020 – Jun 2022)
+• Containerized legacy Python apps with Docker
+• Automated AWS infrastructure provisioning with CloudFormation
+• Wrote Python scripts for log analysis and cost reporting
+
+- Career break (Jul 2022 – Feb 2023): caregiving
+
+Skills:
+AWS (EKS, EC2, S3, IAM, Lambda), Kubernetes, Docker, Terraform, GitHub Actions,
+Python, Bash, Prometheus, Grafana, Linux
+
+Certifications:
+- AWS Certified Solutions Architect – Associate (2022)
+- Certified Kubernetes Administrator (CKA) (2023)
+
+Education:
+Diploma in Information Technology, Ngee Ann Polytechnic
+
+=== JOB DESCRIPTION ===
+Role: Senior Azure Platform Engineer
+Company: Contoso Health
+
+About the role:
+Design and run the Azure platform that hosts our patient-facing AI services.
+
+Required:
+- 5+ years in cloud infrastructure or platform engineering
+- Hands-on experience with Microsoft Azure (AKS, Azure Networking, Entra ID)
+- Kubernetes in production
+- Infrastructure as Code (Bicep or Terraform)
+- CI/CD (Azure DevOps or GitHub Actions)
+
+Preferred:
+- Microsoft Certified: Azure Solutions Architect Expert or AZ-104
+- Experience deploying AI/ML workloads (Azure OpenAI, Microsoft Foundry)
+- Healthcare or other regulated-industry experience (HIPAA, PDPA)
+- Observability with Azure Monitor / Application Insights
+
+Education:
+Bachelor's degree in Computer Science or equivalent experience
+
+Responsibilities:
+- Own AKS cluster design, security, and upgrades
+- Build golden-path IaC templates for product teams
+- Partner with AI teams to deploy models securely
+- Lead incident response and mentor engineers
 ```
