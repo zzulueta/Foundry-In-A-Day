@@ -247,7 +247,7 @@ Certifications: Azure Solutions Architect Expert preferred.
 
 1. Open the `main.py` file in the project directory.
 
-2. Replace with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/main.py>
+2. Replace with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/groupchat.py>
 
 3. Save the file (Ctrl+S) after making the necessary changes.
 
