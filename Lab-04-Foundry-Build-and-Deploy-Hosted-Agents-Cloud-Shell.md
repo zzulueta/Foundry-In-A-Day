@@ -102,7 +102,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 1. Open the `azure.yaml` file in the project directory.
 
 2. Update the configuration as needed for your Foundry project and model deployment.
-   - name: `basicagent`
+   - name: `basicagent` (found under services:)
    - deployments:
        - model name: `gpt-5.4`
        - name: `gpt-5.4`
