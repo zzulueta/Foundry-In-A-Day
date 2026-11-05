@@ -188,21 +188,13 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 2.3 Run the agent locally
 
-1. Install uv and prepare your project’s Python environment:
-  ```bash
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  source "$HOME/.local/bin/env"
-  uv --version
-  uv sync --frozen --python 3.13
-  ```
-  
-2. Run the following command to start the agent locally:
+1. Run the following command to start the agent locally:
   ```bash
   azd ai agent run
   ```
   > The agent host will start on `http://localhost:8088`.
 
-3. Open another cloud shell to interact with the agent while it is running locally.
+2. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
   curl -sS \
   -H "Content-Type: application/json" \
@@ -212,12 +204,14 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 2.4 Deploy to Foundry
 
-1. Deploy to Microsoft Foundry:
+1. Once tested locally, stop the agent that is running locally by clicking Ctrl+C in the terminal where it is running.
+
+2. Deploy to Microsoft Foundry:
   ```bash
   azd deploy
   ```
 
-2. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
 ```
 **Resume:**
 Jane Doe
