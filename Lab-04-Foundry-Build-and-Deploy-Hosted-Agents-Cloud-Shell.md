@@ -166,6 +166,13 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   ```
 
 3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+```
+I am currently unable to connect to the company VPN while working remotely. Whenever I enter my username and password, the VPN client attempts to connect but eventually displays the error message, “Authentication failed. Please verify your credentials and try again.” My regular internet connection is working normally.
+
+I have already restarted my laptop, disconnected and reconnected to Wi-Fi, restarted the VPN client, and carefully re-entered my username and password. I also attempted the connection several times, but I continue to receive the same authentication error.
+
+This issue is preventing me from accessing internal applications, shared folders, and other company resources required for my work. Please investigate whether the issue is related to my account credentials, MFA authentication, VPN configuration, or the VPN service itself, and let me know if there are any additional troubleshooting steps I should perform.
+```
 
 ## Step 2: Build the Sequential Agent
 
