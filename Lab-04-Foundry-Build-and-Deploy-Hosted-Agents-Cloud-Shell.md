@@ -188,17 +188,13 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 2.3 Run the agent locally
 
-1. Run in the same directory as the pyproject.toml file the following command to install a new dependency:
-  ```bash
-  uv add --python 3.13 agent-framework-orchestrations
-  ```
-2. Run the following command to start the agent locally:
+1. Run the following command to start the agent locally:
   ```bash
   azd ai agent run
   ```
   > The agent host will start on `http://localhost:8088`.
 
-3. Open another cloud shell to interact with the agent while it is running locally.
+2. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
   curl -sS \
   -H "Content-Type: application/json" \
@@ -253,13 +249,18 @@ Certifications: Azure Solutions Architect Expert preferred.
 
 ### 3.3 Run the agent locally
 
-1. Run the following command to start the agent locally:
+1. Run in the same directory as the pyproject.toml file the following command to install a new dependency:
+  ```bash
+  uv add --python 3.13 agent-framework-orchestrations
+  ```
+
+2. Run the following command to start the agent locally:
   ```bash
   azd ai agent run
   ```
   > The agent host will start on `http://localhost:8088`.
 
-2. Open another cloud shell to interact with the agent while it is running locally.
+3. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
   curl -sS \
   -H "Content-Type: application/json" \
