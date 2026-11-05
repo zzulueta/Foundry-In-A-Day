@@ -11,8 +11,6 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 **Estimated time:** 90 minutes
 
-> **Preview notice:** The Foundry `azd` extensions and agent templates may be in preview. Check Microsoft's [hosted-agent project initialization guide](https://learn.microsoft.com/azure/foundry/agents/how-to/init-agent-project) for the current status and limitations.
-
 ## Prerequisites
 
 - An Azure subscription with access to the Foundry project and permission to deploy hosted agents
