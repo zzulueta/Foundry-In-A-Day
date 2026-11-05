@@ -155,11 +155,13 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   -X POST http://localhost:8088/responses \
   -d '{"input":"Users cannot access the internal Sales Portal. It returns 503 Service Unavailable and started this morning. Sales cannot submit customer orders, delaying new opportunities."}'
   ```
-  
+
 ### 1.8 Deploy to Foundry
 
-1. Once tested locally, deploy to Microsoft Foundry:
+1. Once tested locally, stop the agent that is running locally by clicking Ctrl+C in the terminal where it is running.
+
+2. Deploy to Microsoft Foundry:
   ```bash
   azd deploy
   ```
-2. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
