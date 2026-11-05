@@ -164,4 +164,5 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   ```bash
   azd deploy
   ```
+
 3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
