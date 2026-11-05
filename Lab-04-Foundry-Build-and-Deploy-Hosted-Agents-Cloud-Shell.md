@@ -166,3 +166,56 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   ```
 
 3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+
+## Step 2: Build the Sequential Agent
+
+### 2.1 Modify the azure.yaml
+
+1. Open the `azure.yaml` file in the project directory.
+
+2. Update the configuration as needed for your Foundry project and model deployment.
+   - name: `sequentialagent` (found under services:)
+       
+3. Save the file (Ctrl+S) after making the necessary changes.
+
+### 2.2 Modify the main.py file
+
+1. Open the `main.py` file in the project directory.
+
+2. Replace with the code from: <https://github.com/zzulueta/foundry-bootcamp/blob/master/Hosted%20Agent/main.py>
+
+3. Save the file (Ctrl+S) after making the necessary changes.
+
+### 2.3 Run the agent locally
+
+1. Install uv and prepare your project’s Python environment:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  source "$HOME/.local/bin/env"
+  uv --version
+  uv sync --frozen --python 3.13
+  ```
+  
+2. Run the following command to start the agent locally:
+  ```bash
+  azd ai agent run
+  ```
+  > The agent host will start on `http://localhost:8088`.
+
+3. Open another cloud shell to interact with the agent while it is running locally.
+  ```bash
+  curl -sS -H "Content-Type: application/json" \
+  -X POST http://localhost:8088/responses \
+  -d '{"input":"Users cannot access the internal Sales Portal. It returns 503 Service Unavailable and started this morning. Sales cannot submit customer orders, delaying new opportunities."}'
+  ```
+
+### 2.4 Deploy to Foundry
+
+1. Once tested locally, stop the agent that is running locally by clicking Ctrl+C in the terminal where it is running.
+
+2. Deploy to Microsoft Foundry:
+  ```bash
+  azd deploy
+  ```
+
+3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
