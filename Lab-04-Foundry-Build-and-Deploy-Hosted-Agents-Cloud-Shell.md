@@ -135,18 +135,27 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 1.7 Run the agent locally
 
-1. Run the following command to start the agent locally:
+1. Install uv and prepare your project’s Python environment:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  source "$HOME/.local/bin/env"
+  uv --version
+  uv sync --frozen --python 3.13
+  ```
+  
+2. Run the following command to start the agent locally:
   ```bash
   azd ai agent run
   ```
   > The agent host will start on `http://localhost:8088`.
 
-2. Open another cloud shell to interact with the agent while it is running locally.
+3. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
   curl -sS -H "Content-Type: application/json" \
   -X POST http://localhost:8088/responses \
   -d '{"input":"Users cannot access the internal Sales Portal. It returns 503 Service Unavailable and started this morning. Sales cannot submit customer orders, delaying new opportunities."}'
   ```
+  
 ### 1.8 Deploy to Foundry
 
 1. Once tested locally, deploy to Microsoft Foundry:
