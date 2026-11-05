@@ -351,3 +351,37 @@ Responsibilities:
 - Partner with AI teams to deploy models securely
 - Lead incident response and mentor engineers
 ```
+
+---
+
+## Summary and Key Takeaways
+
+In this lab, you used Azure Cloud Shell and the Azure Developer CLI to build, test, and deploy three hosted-agent patterns while reusing the Foundry project and model deployment from Lab 01:
+
+- **Basic agent:** A single-purpose agent that translates technical incidents into executive-friendly summaries.
+- **Sequential agent:** A multi-agent workflow that processes resume and job description analysis through ordered stages.
+- **Group chat agent:** A collaborative workflow where specialized agents contribute to a shared analysis.
+
+### Configuration and Dependencies
+
+- **Deployment configuration:** `azure.yaml` defines the agent's Foundry configuration. The `name` under the agent service controls its deployed name; changing it targets a different agent rather than renaming an existing deployment.
+- **Local configuration:** `.env` supplies the project endpoint and model settings used by the local application. Keep credentials and environment files out of source control.
+- **Python dependencies:** Use `uv add` from the directory containing `pyproject.toml` to add libraries. It updates the dependency manifest, lockfile, and local environment; do not edit `uv.lock` manually.
+
+### Development and Deployment
+
+1. Configure the agent and implement its instructions or orchestration.
+2. Run locally with `azd ai agent run` and test the Responses endpoint with `curl`.
+3. Stop the local agent before starting another agent on the same port.
+4. Deploy with `azd deploy` and verify behavior in Foundry using the same test inputs.
+
+Local code or dependency changes do not automatically update the deployed agent. Restart locally to test changes, ensure deployment dependencies are included, and deploy again when ready.
+
+### Practical Considerations
+
+- Use single-purpose agents for focused tasks, sequential workflows for ordered processing, and group chat workflows when collaboration adds value.
+- Test missing information, ambiguous requests, and mismatched qualifications. Check that responses use the supplied evidence rather than inventing facts.
+- Treat resume analysis as decision support for human review, based only on job-related qualifications.
+- This lab uses Cloud Shell without persistent storage. Download or commit non-sensitive source files before ending the session so your work is not lost.
+
+**End of Lab**
