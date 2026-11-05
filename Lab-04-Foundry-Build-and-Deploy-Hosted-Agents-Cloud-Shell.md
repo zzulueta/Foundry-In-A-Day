@@ -204,9 +204,10 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 3. Open another cloud shell to interact with the agent while it is running locally.
   ```bash
-  curl -sS -H "Content-Type: application/json" \
+  curl -sS \
+  -H "Content-Type: application/json" \
   -X POST http://localhost:8088/responses \
-  -d '{"input":"Users cannot access the internal Sales Portal. It returns 503 Service Unavailable and started this morning. Sales cannot submit customer orders, delaying new opportunities."}'
+  -d '{"input":"**Resume:**\nJane Doe\nSenior Software Engineer with 5 years of experience in Python, Django, and AWS.\nBuilt microservices handling 10K+ requests/second. Led a team of 4 developers.\nCertifications: AWS Solutions Architect Associate.\nEducation: B.S. Computer Science, State University.\n\n**Job Description:**\nSenior Cloud Engineer at Contoso Ltd.\nRequired: Python, Azure, Kubernetes, Terraform, CI/CD pipelines.\nPreferred: Go, monitoring (Prometheus/Grafana), cost optimization.\nExperience: 5+ years in cloud infrastructure.\nCertifications: Azure Solutions Architect Expert preferred."}'
   ```
 
 ### 2.4 Deploy to Foundry
@@ -219,3 +220,18 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   ```
 
 3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+```
+**Resume:**
+Jane Doe
+Senior Software Engineer with 5 years of experience in Python, Django, and AWS.
+Built microservices handling 10K+ requests/second. Led a team of 4 developers.
+Certifications: AWS Solutions Architect Associate.
+Education: B.S. Computer Science, State University.
+
+**Job Description:**
+Senior Cloud Engineer at Contoso Ltd.
+Required: Python, Azure, Kubernetes, Terraform, CI/CD pipelines.
+Preferred: Go, monitoring (Prometheus/Grafana), cost optimization.
+Experience: 5+ years in cloud infrastructure.
+Certifications: Azure Solutions Architect Expert preferred.
+```
