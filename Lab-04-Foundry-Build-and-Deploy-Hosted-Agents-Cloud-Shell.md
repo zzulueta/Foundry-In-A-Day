@@ -123,6 +123,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 1. Open the `.env.example` file in the project directory.
 
 2. Update the environment variables for your local development.
+  > You should get the Foundry Project Endpoint from the Home page of your Foundry project.
 
 3. Save the file (Ctrl+S) after making the necessary changes.
 
