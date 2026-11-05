@@ -42,7 +42,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
    cd "$HOME"
    ```
 
-4. Confirm Azure CLI access and select the subscription used in Lab 01:
+4. Confirm Azure CLI access and select the proper subscription used in Lab 01:
 
    ```bash
    az account show --output table
@@ -96,18 +96,17 @@ Confirm that the command reports Python 3.13 before testing locally. Pin Python 
 uv python pin 3.13
 ```
 
-## Step 4: Connect to the existing Foundry project
+## Step 4: Get the existing Foundry project ID
 
-1. In the [Foundry portal](https://ai.azure.com), open **Manage** > **Project details** for `project01` and copy its **Resource ID**. It has a form similar to:
+1. In the [Foundry portal](https://ai.azure.com), open **Manage** > **Project details** for `project01` and copy its **Resource ID**. This is the full Azure resource ID (not a short project GUID), in a form similar to:
 
    ```text
    /subscriptions/<subscription-id>/resourceGroups/rg-foundry-lab/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>/projects/project01
    ```
 
-2. Confirm the model deployment name for the `gpt-5.4` deployment from Lab 01.
-3. If asked by `azd` to select a project, choose **Use an existing Foundry project** and select `project01`.
+2. Confirm the model deployment name for the `gpt-5.4` deployment from Lab 01. The initialization commands in the next steps pass both the project Resource ID and the existing model deployment to `azd`.
 
-> **Permissions note:** Connecting to an existing project does not automatically grant every required role. Hosted-agent deployment requires the appropriate project permissions, including the [hosted-agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions). Ask your Azure administrator to resolve authorization errors.
+> **Permissions note:** Passing `--project-id` connects `azd` directly to the existing project and skips the automatic role assignments performed when `azd` creates a new project. Before continuing, make sure your account already has the required hosted-agent permissions on this project. See [Hosted agent permissions](https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions), or ask your Azure administrator to assign them.
 
 ## Step 5: Create the Executive Summary Agent
 
@@ -124,11 +123,12 @@ azd ai agent init \
   --template "https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/agent-framework/responses/01-basic/azure.yaml" \
   --deploy-mode code \
   --src . \
+  --project-id "<project-resource-id-from-step-4>" \
   --model-deployment "<gpt-5.4-deployment-name>" \
   --agent-name executive-summary-agent
 ```
 
-When prompted, choose the Azure subscription from Lab 01 and connect to the existing `project01` project. This command uses **code** deployment: it uploads source for Foundry to build remotely, rather than building a container in Cloud Shell.
+The `--project-id` argument connects this agent to the existing `project01` project; replace its placeholder with the full Resource ID copied in Step 4. The `--model-deployment` argument selects the existing `gpt-5.4` deployment. This command uses **code** deployment: it uploads source for Foundry to build remotely, rather than building a container in Cloud Shell.
 
 Review the generated `azure.yaml` and agent source with the Cloud Shell editor or a terminal editor such as `nano`. Confirm the project and model deployment are correct. For Python, ensure the agent service's `env` map includes:
 
@@ -234,11 +234,12 @@ azd ai agent init \
   --template "https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/agent-framework/responses/01-basic/azure.yaml" \
   --deploy-mode code \
   --src . \
+  --project-id "<project-resource-id-from-step-4>" \
   --model-deployment "<gpt-5.4-deployment-name>" \
   --agent-name resume-analyzer
 ```
 
-When prompted, select the same subscription and existing `project01` project. Review `azure.yaml` and confirm this service also uses source-code deployment and the intended model deployment. Ensure `PYTHONNOUSERSITE: "1"` is present in the service's environment.
+Replace the project ID and model-deployment placeholders with the same values used in Step 5.1. Review `azure.yaml` and confirm this service also uses source-code deployment and the intended model deployment. Ensure `PYTHONNOUSERSITE: "1"` is present in the service's environment.
 
 ### 6.2 Add the resume analyzer workflow
 
