@@ -55,7 +55,7 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 1.2 Initialize the agent project
 
-1. Create a new folder and initialize from the manifest:
+1. Initialize the project from the manifest. This creates a new `agent-framework-agent-basic-responses` folder for you:
 
   ```bash
   azd ai agent init -m https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/agent-framework/responses/01-basic/azure.yaml
@@ -63,6 +63,12 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
   > Follow the prompts to:
   - Login to your GitHub account 
   - Configure your Foundry project and model deployment. 
+
+2. Change into the generated project folder (run all remaining `azd` commands from here):
+
+  ```bash
+  cd agent-framework-agent-basic-responses
+  ```
 
 ### 1.3 Explore the project structure
 
