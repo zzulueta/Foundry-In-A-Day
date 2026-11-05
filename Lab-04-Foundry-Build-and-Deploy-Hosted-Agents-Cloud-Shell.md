@@ -212,14 +212,12 @@ You will reuse the Foundry resource, `project01` project, and `gpt-5.4` model de
 
 ### 2.4 Deploy to Foundry
 
-1. Once tested locally, stop the agent that is running locally by clicking Ctrl+C in the terminal where it is running.
-
-2. Deploy to Microsoft Foundry:
+1. Deploy to Microsoft Foundry:
   ```bash
   azd deploy
   ```
 
-3. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
+2. After deployment, you can interact with your agent through the Foundry interface or using the appropriate API endpoints.
 ```
 **Resume:**
 Jane Doe
