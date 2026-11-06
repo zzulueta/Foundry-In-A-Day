@@ -81,12 +81,20 @@ By the end of this lab, you will have:
 5. Click **Review + Create**, then **Create**
 6. Wait for the deployment to complete (typically 1-2 minutes)
 
-### 2.2 Access Microsoft Foundry Portal
+### 2.2 Provide Access to Your Account
 1. Once deployment completes, click **Go to resource**
-2. In the resource overview, click **Go to Foundry Portal** or navigate directly to [https://ai.azure.com/](https://ai.azure.com/)
-3. Sign in with your Azure credentials
-4. Verify that you are in the New Foundry Portal and that your project (`project01`) is selected in the upper left corner.
+2. Select **Access control (IAM)** from the left sidebar
+3. Select **Add** > **Add role assignment**
+4. In the **Role** selection, search and select **Foundry Account Owner**, then select Next
+5. In the **Add role assignment**, select **User, group, or service principal**, then click **Select members**
+6. In the **Select members** field, search for your Azure account and select it
+7. Click **Review + assign** twice.
+8. Provide your account the **Foundry User** role as well using the same steps above.
 
+### 2.3 Access Microsoft Foundry Portal
+1. In the resource overview, click **Go to Foundry Portal** or navigate directly to [https://ai.azure.com/](https://ai.azure.com/)
+2. Sign in with your Azure credentials
+3. Verify that you are in the New Foundry Portal and that your project (`project01`) is selected in the upper left corner.
 ---
 
 ## Step 3: Deploy a Foundry Model
